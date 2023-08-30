@@ -2,7 +2,6 @@ package ru.aston.druzhinin_ri.task1.model;
 
 import lombok.*;
 
-import java.util.Objects;
 
 @Getter
 @Setter

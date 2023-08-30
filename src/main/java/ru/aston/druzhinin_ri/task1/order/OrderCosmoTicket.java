@@ -12,8 +12,18 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @ToString
-public abstract class OrderCosmoTicket {
+public abstract class OrderCosmoTicket implements Discount , Comparable<OrderCosmoTicket>{
+    private BigDecimal discount;
     private User user;
     private BigDecimal price;
     private int id;
+
+    @Override
+    public int compareTo(OrderCosmoTicket orderCosmoTicket) {
+        return user.getSourName().compareTo(orderCosmoTicket.user.getSourName());
+    }
+
+    public BigDecimal getPrice() {
+        return this.price.multiply(discount());
+    }
 }
