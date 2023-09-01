@@ -18,7 +18,7 @@ public class CalculationImpl implements CalculationSort {
     public BigDecimal priceCalculation() {
         resultSum = BigDecimal.ZERO;
         for (OrderCosmoTicket OrderCosmoTicket : this.calculationList){
-            resultSum = resultSum.add(OrderCosmoTicket.getPrice());
+            resultSum = resultSum.add(OrderCosmoTicket.discount());
         }
         return resultSum;
     }

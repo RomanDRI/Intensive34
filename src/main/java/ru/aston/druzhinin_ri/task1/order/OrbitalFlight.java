@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 public class OrbitalFlight extends OrderCosmoTicket{
     private BigDecimal bigDecimal;
 
-    public OrbitalFlight(BigDecimal discount, User user, BigDecimal price, int id, BigDecimal bigDecimal) {
-        super(discount, user, price, id);
+    public OrbitalFlight(BigDecimal price, User user, int id, BigDecimal bigDecimal) {
+        super(price, user, id);
         this.bigDecimal = bigDecimal;
     }
 

@@ -23,8 +23,8 @@ class Intensive34ApplicationTests {
 		User user = new User(32, "Roman", "Dru");
 		User user1 = new User(31,"Alex", "Mag");
 
-		OrderCosmoTicket cosmoTicket = new SuborbitalFlight(BigDecimal.valueOf(20), user, BigDecimal.valueOf(10000000),1, BigDecimal.valueOf(2));
-		OrderCosmoTicket cosmoTicket1 = new OrbitalFlight(BigDecimal.valueOf(20),user1, BigDecimal.valueOf(20000000), 2, BigDecimal.valueOf(5));
+		OrderCosmoTicket cosmoTicket = new SuborbitalFlight(new BigDecimal(10000000), user,1, new BigDecimal("0.8"));
+		OrderCosmoTicket cosmoTicket1 = new OrbitalFlight(new BigDecimal(20000000), user1,2, new BigDecimal("0.9"));
 		List<OrderCosmoTicket> list= new ArrayList<>();
 		list.add(cosmoTicket);
 		list.add(cosmoTicket1);
@@ -34,12 +34,13 @@ class Intensive34ApplicationTests {
 
 	@Test
 	void calculationTest() {
-		Assertions.assertEquals(new BigDecimal(2400000000.0), calculation.priceCalculation());
+		Assertions.assertEquals(new BigDecimal("26000000.0"), calculation.priceCalculation());
 	}
 
 	@Test
 	void sortList(){
-		Assertions.assertNotEquals(calculation, calculation.getSortedList());
+		Assertions.assertNotEquals(calculation.getSortedList().get(0).getUser().getName(), "Alex");
+		Assertions.assertNotEquals(calculation.getSortedList().get(1).getUser().getName(), "Roman");
 	}
 
 
