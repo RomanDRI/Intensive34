@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 public class SuborbitalFlight extends OrderCosmoTicket{
     private BigDecimal bigDecimal;
 
-    public SuborbitalFlight(BigDecimal discount, User user, BigDecimal price, int id, BigDecimal bigDecimal) {
-        super(discount, user, price, id);
+    public SuborbitalFlight(BigDecimal price, User user, int id, BigDecimal bigDecimal) {
+        super(price, user, id);
         this.bigDecimal = bigDecimal;
     }
 

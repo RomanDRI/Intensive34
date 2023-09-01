@@ -1,21 +1,15 @@
 package ru.aston.druzhinin_ri.task1.order;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import ru.aston.druzhinin_ri.task1.model.User;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
-@ToString
 public abstract class OrderCosmoTicket implements Discount , Comparable<OrderCosmoTicket>{
     private BigDecimal discount;
     private User user;
-    private BigDecimal price;
     private int id;
 
     @Override
@@ -24,6 +18,6 @@ public abstract class OrderCosmoTicket implements Discount , Comparable<OrderCos
     }
 
     public BigDecimal getPrice() {
-        return this.price.multiply(discount());
+        return this.discount.multiply(discount());
     }
 }
