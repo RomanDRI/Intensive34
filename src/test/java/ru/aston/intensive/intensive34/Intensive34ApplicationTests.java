@@ -17,7 +17,7 @@ import java.util.List;
 
 class Intensive34ApplicationTests {
 
-	CalculationImpl calculation;
+	private CalculationImpl calculation;
 
 	@BeforeEach
 	void initList() throws CustomException {
