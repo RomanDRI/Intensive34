@@ -44,5 +44,11 @@ class Intensive34ApplicationTests {
 		Assertions.assertNotEquals(calculation.getSortedList().get(1).getUser().getName(), "Roman");
 	}
 
+	@Test
+	void exception() throws CustomException {
+		User user2 = new User(31,"Andrey", "Lind");
+		OrderCosmoTicket cosmoTicket = new OrbitalFlight(new BigDecimal(0), user2,1, new BigDecimal("0.8"));
+	}
+
 
 }
