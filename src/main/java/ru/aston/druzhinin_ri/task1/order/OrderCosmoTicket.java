@@ -30,7 +30,7 @@ public abstract class OrderCosmoTicket implements Discount , Comparable<OrderCos
     }
 
     public void setPrice(BigDecimal price) throws CustomException {
-        if(price.compareTo(new BigDecimal(0))<=0) throw new CustomException ("Цена должна быть больше нуля. Code: CustomException");
+        if(price.compareTo(new BigDecimal(0))<=0) throw new CustomException ("Цена должна быть больше нуля.", 2);
         else this.price = price;
     }
 }
