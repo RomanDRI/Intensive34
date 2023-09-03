@@ -8,6 +8,7 @@ import ru.aston.druzhinin_ri.task1.order.OrbitalFlight;
 import ru.aston.druzhinin_ri.task1.order.OrderCosmoTicket;
 import ru.aston.druzhinin_ri.task1.order.SuborbitalFlight;
 import ru.aston.druzhinin_ri.task1.model.User;
+import ru.aston.druzhinin_ri.task2.exception.CustomException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ class Intensive34ApplicationTests {
 	CalculationImpl calculation;
 
 	@BeforeEach
-	void initList() {
+	void initList() throws CustomException {
 		User user = new User(32, "Roman", "Dru");
 		User user1 = new User(31,"Alex", "Mag");
 
