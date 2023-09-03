@@ -8,6 +8,7 @@ import ru.aston.druzhinin_ri.task1.order.OrbitalFlight;
 import ru.aston.druzhinin_ri.task1.order.OrderCosmoTicket;
 import ru.aston.druzhinin_ri.task1.order.SuborbitalFlight;
 import ru.aston.druzhinin_ri.task1.model.User;
+import ru.aston.druzhinin_ri.task2.exception.CustomException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,10 +17,10 @@ import java.util.List;
 
 class Intensive34ApplicationTests {
 
-	CalculationImpl calculation;
+	private CalculationImpl calculation;
 
 	@BeforeEach
-	void initList() {
+	void initList() throws CustomException {
 		User user = new User(32, "Roman", "Dru");
 		User user1 = new User(31,"Alex", "Mag");
 
@@ -41,6 +42,12 @@ class Intensive34ApplicationTests {
 	void sortList(){
 		Assertions.assertNotEquals(calculation.getSortedList().get(0).getUser().getName(), "Alex");
 		Assertions.assertNotEquals(calculation.getSortedList().get(1).getUser().getName(), "Roman");
+	}
+
+	@Test
+	void exception() throws CustomException {
+		User user2 = new User(31,"Andrey", "Lind");
+		OrderCosmoTicket cosmoTicket = new OrbitalFlight(new BigDecimal(0), user2,1, new BigDecimal("0.8"));
 	}
 
 
