@@ -2,7 +2,6 @@ package ru.aston.druzhinin_ri.task1.order;
 
 import lombok.Data;
 import ru.aston.druzhinin_ri.task1.model.User;
-import ru.aston.druzhinin_ri.task2.exception.CustomException;
 
 import java.math.BigDecimal;
 
