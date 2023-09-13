@@ -1,4 +1,5 @@
-
+DROP TABLE ORDERS;
+DROP TABLE USERS;
 CREATE TABLE if not exists ORDERS (
     id int auto_increment,
     number_of_order integer UNIQUE NOT NULL,

@@ -1,5 +1,6 @@
 package ru.aston.druzhinin_ri.task4.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,12 +10,14 @@ import java.util.Set;
 
 
 
-@Getter
-@Setter
+@Data
 public class Order {
     private int id;
     private int numberOfOrder;
     private Set<User> user = new HashSet<>();
+
+    public Order() {
+    }
 
     public Order(int numberOfOrder) {
         this.numberOfOrder = numberOfOrder;
