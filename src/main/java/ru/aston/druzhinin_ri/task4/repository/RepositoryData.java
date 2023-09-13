@@ -11,10 +11,8 @@ public class RepositoryData {
     private static final String PASSWORD_KEY = "db.password";
 
 
-    public void scriptRun() {
-        try (Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+    public Boolean scriptRun() {
+        try (Connection connection = Connector.getConnector();
              Statement statement = connection.createStatement()){
             statement.execute("RUNSCRIPT FROM 'sql/schema.sql'");
             statement.execute("RUNSCRIPT FROM 'sql/data.sql'");
@@ -24,6 +22,7 @@ public class RepositoryData {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }
 
 }
