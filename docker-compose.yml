@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  h2:
+    image: 'h2'
+    container_name: 'java-h2'
+    environment:
+      - 'H2_USER=root'
