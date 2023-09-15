@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class StreamTest {
 
     @Test
-    void multiplier(){
+    void multiplierStream(){
         //Умножить каждое число в массиве [1, 2, 3, 4, 5] на 2,
         int[] array = {1,2,3,4,5};
         int multiplier = 2;
