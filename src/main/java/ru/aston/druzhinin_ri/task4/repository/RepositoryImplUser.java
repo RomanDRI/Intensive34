@@ -18,9 +18,7 @@ public class RepositoryImplUser implements Repository<User>{
     public List<User> findAll() {
         List<User> setUser = new ArrayList<>();
         String sqlUsers = "SELECT * FROM USERS";
-        try (Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try (Connection connection = Connector.getConnector();
              Statement statement = connection.createStatement()) {
             Class.forName("org.h2.Driver");
             ResultSet resultSet = statement.executeQuery(sqlUsers);
@@ -44,9 +42,7 @@ public class RepositoryImplUser implements Repository<User>{
     @Override
     public User findEntityById(int id) {
         User user = null;
-        try(Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try(Connection connection = Connector.getConnector();
             Statement statement = connection.createStatement()){
             String sqlCode = "SELECT*FROM users  WHERE id =" + id;
             try(ResultSet resultSet = statement.executeQuery(sqlCode)) {
@@ -69,9 +65,7 @@ public class RepositoryImplUser implements Repository<User>{
     public boolean delete(int id) {
         String sql = "DELETE FROM USERS where id = ?";
         Boolean isDelete = false;
-        try (Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try (Connection connection = Connector.getConnector();
              PreparedStatement statement = connection.prepareStatement(sql)){
                 statement.setInt(1, id);
             if (statement.executeUpdate() > 0) {
@@ -87,9 +81,7 @@ public class RepositoryImplUser implements Repository<User>{
     public boolean create(User u) {
         Boolean isCreate = false;
         String sql = "INSERT INTO USERS (full_name, phone, email, order_id) VALUES(?,?,?,?)" ;
-        try (Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try (Connection connection = Connector.getConnector();
              PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,u.getFullName());
             statement.setString(2, u.getPhone());
@@ -108,9 +100,7 @@ public class RepositoryImplUser implements Repository<User>{
     public User update(User user) {
         User rsUser = null;
         String sqlUpdate = "UPDATE USERS SET full_name = ?, phone = ?, email = ?, order_id = ? WHERE id = ?";
-        try (Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try (Connection connection = Connector.getConnector();
              PreparedStatement statement = connection.prepareStatement(sqlUpdate)) {
             statement.setString(1, user.getFullName());
             statement.setString(2, user.getPhone());
@@ -130,9 +120,7 @@ public class RepositoryImplUser implements Repository<User>{
     public List<String> findUsersOrders() {
         String sql = "SELECT*FROM users u LEFT JOIN orders o on u.id = o.id";
         List<String> list = new ArrayList<>();
-        try(Connection connection = DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                PropertiesUtil.get(USER_KEY),
-                PropertiesUtil.get(PASSWORD_KEY));
+        try(Connection connection = Connector.getConnector();
             Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){

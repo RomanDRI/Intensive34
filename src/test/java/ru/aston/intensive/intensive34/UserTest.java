@@ -20,7 +20,7 @@ class UserTest {
 
         @BeforeAll
         static void init() {
-            repositoryData.scriptRun();
+            //repositoryData.scriptRun();
             userImpl = new RepositoryImplUser();
         }
 

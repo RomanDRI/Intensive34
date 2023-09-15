@@ -1,5 +1,6 @@
 package ru.aston.druzhinin_ri.task4.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 public class User {
     private int id;
     private String fullName;
@@ -16,6 +16,9 @@ public class User {
     private String email;
     private int orderId;
     private Set<Order> order = new HashSet<>();
+
+    public User() {
+    }
 
     public User(String fullName, String phone, String email, int orderId) {
         this.fullName = fullName;
